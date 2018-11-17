@@ -1,8 +1,8 @@
-MicroLink IT College E-library Management Software
-==================================================
+CI STARTER
+==========
 
 * Author  :- Kenean Alemayehu
-* Email   :- hxlionk50@gmail.com
+* Email   :- Keneanalemayehu50@gmail.com
 * Phone   :- +251-910-565-209
 * Version :- 1.0
 
