@@ -30,8 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="wrapper">
 	<header class="main-header">
 		<a href="<?php echo base_url();?>" class="logo">
-			<span class="logo-mini"><b>B</b>C</span>
-			<span class="logo-lg">Base<b>Code</b></span>
+			<span class="logo-mini"><b>C</b>I</span>
+			<span class="logo-lg">CI Starter</span>
 		</a>
 		<nav class="navbar navbar-static-top">
 			<a href="#"  class="sidebar-toggle" data-toggle="push-menu" role="button">
