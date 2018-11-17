@@ -2,7 +2,7 @@
 				<div class="pull-right hidden-xs">
 					<b>Version</b> 1.0
 				</div>
-				<strong>Copyright &copy; 2018 <a href="<?php echo base_url();?>"> Micro Link</a>.</strong> All rights reserved.
+				<strong>Copyright &copy; 2018 <a href="<?php echo base_url();?>"> CI starter</a>.</strong> All rights reserved.
 			</footer>
  		 	<aside class="control-sidebar control-sidebar-dark">
 			    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
