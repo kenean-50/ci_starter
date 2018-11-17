@@ -122,7 +122,7 @@ class settings extends CI_Controller {
 				
 				$data = array('upload_data' => $this->upload->data());
 				$image_name = array('image_name' => $this->upload->data('file_name')); 
-				$this->Admin_model->update_row('images', 'image_id', $this->input->post('image_id'), $image_name);
+				$this->Admin_model->update_row('images', 'id', $this->input->post('id'), $image_name);
 				$this->session->set_flashdata('messagePr', 'Image updated successfully.');
 				redirect('settings/', 'refresh');
 			}
@@ -132,7 +132,7 @@ class settings extends CI_Controller {
 	/**
 	 * Delete image
 	 */
-	public function delete_image($image_id = '') 
+	public function delete_image($id = '') 
 	{
 		if (!$this->ion_auth->logged_in())
 		{
@@ -146,7 +146,7 @@ class settings extends CI_Controller {
 		}
 		else
 		{
-			$this->Admin_model->delete_row('images', 'image_id', $image_id);
+			$this->Admin_model->delete_row('images', 'id', $id);
 			$this->session->set_flashdata('messagePr' ,  'Image placement deleted successfully');
 			redirect( base_url().'settings/change/', 'refresh');
 		}

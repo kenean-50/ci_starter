@@ -170,12 +170,12 @@ class Admin extends CI_Controller {
 				if($this->upload->data('file_name'))
 				{	
 					// get the pic name
-					$pic_name = $this->upload->data('file_name');
+					$profile_image = $this->upload->data('file_name');
 				}
 				else
 				{
 					// if there is no new file assign it to the old one
-					$pic_name = $this->ion_auth->user()->row()->pic_name;
+					$profile_image = $this->ion_auth->user()->row()->profile_image;
 				}
 			
 				$data = array(
@@ -183,7 +183,7 @@ class Admin extends CI_Controller {
 					'last_name' => $this->input->post('last_name'),
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
-					'pic_name'	 => $pic_name,
+					'profile_image'	 => $profile_image,
 				);
 				
 				// update the password if it was posted
@@ -294,7 +294,7 @@ class Admin extends CI_Controller {
 			'type' => 'password',
 			'class'  => 'form-control'
 		);
-		$this->data['pic_name'] = $user->pic_name;
+		$this->data['profile_image'] = $user->profile_image;
 		$this->data['full_name'] = $user->first_name.' '.$user->last_name;
 
 		$this->load->view('admin/include/header');
@@ -373,5 +373,5 @@ class Admin extends CI_Controller {
 			return FALSE;
 	}
 
-    
+	
 }

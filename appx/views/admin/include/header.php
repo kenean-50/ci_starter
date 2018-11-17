@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php $favicon = images('favicon'); ?>
 	<link rel="shortcut icon" href="<?= base_url()?>files/web_images/<?php echo $favicon->image_name; ?>">
-	<title>Base Code |  </title>
+	<title>CI Starter |  </title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/bower_components/font-awesome/css/font-awesome.min.css">
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="nav navbar-nav">
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  							<img src="<?php echo base_url() ?>files/profiles/<?php echo $this->ion_auth->user()->row()->pic_name; ?>" class="user-image" alt="User Image">
+  							<img src="<?php echo base_url() ?>files/profiles/<?php echo $this->ion_auth->user()->row()->profile_image; ?>" class="user-image" alt="User Image">
 							<span class="hidden-xs">
 								<?php
 									echo $this->ion_auth->user()->row()->first_name;
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="dropdown-menu">
  							<li class="user-header">
-								<img src="<?php echo base_url() ?>files/profiles/<?php echo $this->ion_auth->user()->row()->pic_name; ?>" class="img-circle" alt="User Image">
+								<img src="<?php echo base_url() ?>files/profiles/<?php echo $this->ion_auth->user()->row()->profile_image; ?>" class="img-circle" alt="User Image">
 								<p>
 									<?php
 										echo $this->ion_auth->user()->row()->first_name;

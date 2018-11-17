@@ -163,7 +163,7 @@
 								foreach ($images as $image):
 							?>
 								<tr>
-									<td data-toggle="modal" data-target="#viewImage<?php echo $image['image_id']; ?>">
+									<td data-toggle="modal" data-target="#viewImage<?php echo $image['id']; ?>">
 										<div class="row centered">
 											<img src="<?php echo base_url();?>files/web_images/<?php echo $image['image_name'];?>"   width="30">			
 										</div>
@@ -171,17 +171,17 @@
 									<td><?php echo $image['image_name']; ?> </td>
 									<td><?php echo $image['placement']; ?> </td>
 									<td>
-										<button title="Change" class="btn btn-info btn-xs" data-toggle="modal" data-target="#changeImage<?php echo $image['image_id']; ?>">
+										<button title="Change" class="btn btn-info btn-xs" data-toggle="modal" data-target="#changeImage<?php echo $image['id']; ?>">
 											<i class="fa fa-pencil-square-o "></i>
 										</button>
-										<a onclick="confirm_modal('<?php echo base_url().'settings/delete_image/'.$image['image_id']?>');"  href="#">
+										<a onclick="confirm_modal('<?php echo base_url().'settings/delete_image/'.$image['id']?>');"  href="#">
 											<button title="Delete" class="btn btn-danger btn-xs">
 												<i class="fa fa-trash-o "></i> 
 											</button>
 										</a>
 									</td>
 								</tr>
-								<div class="modal fade" id="changeImage<?php echo $image['image_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="changeImage<?php echo $image['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -196,7 +196,7 @@
 															<input type="file" name="userfile"  class="form-control"><br>
 														</div>
 													</div><br><br><br>
-													<input type="hidden" name="image_id" value="<?php echo $image['image_id']; ?>">
+													<input type="hidden" name="id" value="<?php echo $image['id']; ?>">
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Close</button>
@@ -206,7 +206,7 @@
 										</div>
 									</div>
 								</div>   
-								<div class="modal fade" id="viewImage<?php echo $image['image_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="viewImage<?php echo $image['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
