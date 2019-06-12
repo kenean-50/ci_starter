@@ -1,18 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
-* Name:  CodeBase
+* Name:  ci_starter
 *
 * Author: Kenean Alemayehu
-*         hxlionk50@gmail.com
+*         keneanalemayehu50@gmail.com
 *
-* Repository: http://github.com/benedmunds/ion_auth/
+* Repository: https://github.com/kenean-50/ci_starter
 *
 * Created:  03.14.2018
 *
-* Description:  settings contoroller
-*
 */
+
 class settings extends CI_Controller {
 	
 	function __construct()

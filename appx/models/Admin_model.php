@@ -1,8 +1,18 @@
 <?php
-class Admin_model extends CI_Model {
-	
+/**
+* Name:  ci_starter
+*
+* Author: Kenean Alemayehu
+*         keneanalemayehu50@gmail.com
+*
+* Repository: https://github.com/kenean-50/ci_starter
+*
+* Created:  03.14.2018
+*
+*/
 
-	
+class Admin_model extends CI_Model {
+		
 	public function add_user($table, $data)
 	{
 		
