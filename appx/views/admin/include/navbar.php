@@ -2,8 +2,8 @@
  		<section class="sidebar">
  			<div class="user-panel">
 				<div class="pull-left image">
-					<img src="<?php echo base_url().'files/profiles/'.$this->ion_auth->user()->row()->profile_image; ?>" class="img-circle" alt="User Image">
-				</div>
+                    <img data-src="<?php echo load_image($this->ion_auth->user()->row()->profile_image, 'files/profiles', 'user'); ?>" class="img-circle lazy user-loader">
+ 				</div>
 				<div class="pull-left info">
 					<p>
                         <?php
