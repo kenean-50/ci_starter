@@ -205,6 +205,10 @@
 		<script src="<?php echo base_url();?>assets/admin/bower_components/select2/dist/js/select2.min.js"></script>
 		<script src="<?php echo base_url();?>assets/admin/bower_components/PACE/pace.min.js"></script>
 		<script src="<?php echo base_url();?>assets/admin/dist/js/scripts.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.min.js"></script>
+   		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.plugins.min"></script>
+         
+
 		<div class="modal  fade" id="modal-4">
 			<div class="modal-dialog">
 				<div class="modal-content" style="margin-top:100px;">
@@ -220,6 +224,21 @@
 			</div>
 		</div>
 		<script>
+			
+			$(function() {
+				$('.lazy').Lazy({
+ 					scrollDirection: 'vertical',
+					effect: "fadeIn",
+					effectTime: 200,
+					threshold: 0,
+					delay: 2000,
+					placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7...",
+					visibleOnly: true,
+					onError: function(element) {
+						console.log('error loading ' + element.data('src'));
+					}
+				});
+			});
 
 			$('.sidebar-toggle').click(function ()
 			{
