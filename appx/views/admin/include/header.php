@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<?php $favicon = images('favicon'); ?>
-	<link rel="shortcut icon" href="<?= base_url()?>files/web_images/<?php echo $favicon->image_name; ?>">
+	<?php $favicon = web_image('favicon'); ?>
+	<link rel="shortcut icon" href="<?= base_url()?>files/web_images/<?php echo $favicon; ?>">
 	<title>CI Starter |  </title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -25,6 +25,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/select2/dist/css/select2.min.css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/plugins/pace/pace.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+	<style>
+
+		img.user-thumb-loader {
+			width: 35px; 
+			height: 35px; 
+			background-image: url('<?php echo base_url("files/web_images/" . web_image("user-thumb-loader")); ?>');
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+		}
+
+		img.user-loader {
+			width: 50%; 
+			height: 50%; 
+			background-image: url('<?php echo base_url("files/web_images/" . web_image("user-loader")); ?>');
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+		}
+
+	</style>
 </head>
 <body class="hold-transition <?php echo setting_all('skin'); ?> <?php echo setting_all('sidebar'); ?> sidebar-mini">
 <div class="wrapper">
@@ -41,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="nav navbar-nav">
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  							<img src="<?php echo base_url() ?>files/profiles/<?php echo $this->ion_auth->user()->row()->profile_image; ?>" class="user-image" alt="User Image">
+  							<img data-src="<?php echo load_image($this->ion_auth->user()->row()->profile_image, 'files/profiles', 'user-thumb'); ?>" class="user-image lazy user-thumb-loader">
 							<span class="hidden-xs">
 								<?php
 									echo $this->ion_auth->user()->row()->first_name;

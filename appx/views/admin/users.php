@@ -45,7 +45,7 @@
 									<tbody>
 										<?php foreach ($users as $user): ?>
 											<tr>
-												<td><img class="direct-chat-img" src="<?php echo base_url() ?>files/profiles/<?php echo $user->profile_image; ?>" class="user-image" alt="User Image"></td>
+												<td><img class="direct-chat-img lazy user-thumb-loader" data-src="<?php echo load_image($user->profile_image, 'files/profiles', 'user-thumb'); ?>"></td>
 												<td><?php echo $user->first_name.' '.$user->last_name ?> </td>
  												<td><?php echo $user->email; ?> </td>
 												<td><?php echo $user->username; ?> </td>

@@ -328,35 +328,64 @@
 		echo json_encode($output_arr);
     }
 
-	  function getTemplatesByModule($module){
-	  	$CI = get_instance();
-	  	$CI->db->select('*');
-	  	$CI->db->from('templates');
-	  	$CI->db->where('module', $module);
-	  	$qr = $CI->db->get();
-	  	return $qr->result();
-	  }
+	function getTemplatesByModule($module){
+	$CI = get_instance();
+	$CI->db->select('*');
+	$CI->db->from('templates');
+	$CI->db->where('module', $module);
+	$qr = $CI->db->get();
+	return $qr->result();
+	}
 
-/*	  function geneeratePdf($module, $mid, $tid) {
-	  	$CI = get_instance();
-	  	$template_row = getDataByid('templates',$tid,'id');
-	  	$module_row = getDataByid($module,$mid,'id');
-	  	$CI->load->library('Mypdf');
-	  	$html = $template_row->html;
-	  	//print_r($module_row);
-	  	foreach ($module_row as $key => $value) {
-	  		$html = str_replace('{var_'.$key.'}', $value, $html);		
-	  	}
 
-		  $CI->dompdf->load_html($html);
-		  $CI->dompdf->set_paper("A4", "portrait");
-		  $CI->dompdf->render();
-		  $filename = "mkaTestd.pdf";
-		  $path = realpath(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/assets/images/pdf/';
-		  if(file_exists($path.$filename)) {
-			  unlink($path.$filename);
-		  }
-		  file_put_contents($path.$filename, $CI->dompdf->output());
-		  return  $path.$filename;
-	  }*/
+/** 
+ * This function will load images from the data base
+ * @param placement the placement of the image
+*/
+
+if ( ! function_exists('web_image'))
+{
+	function web_image($placement)
+	{
+		$CI = get_instance();
+		$CI->db->select('*');
+		$CI->db->from('web_images');
+		$CI->db->where('placement' , $placement);
+		$result = $CI->db->get()->row();
+
+ 		if(!empty($result)):
+			return $result->image_name;
+		else:
+			return false;
+		endif;
+	}
+
+}
+
+
+/**
+ * load image if it exist or return the default
+ * @param image_name
+ * @param path
+ * @param default_image
+ */
+
+if ( ! function_exists('load_image'))
+{
+	function load_image($image_name, $path, $default_image)
+	{
+		$CI = get_instance();
+
+		$image_exist = file_exists($CI->config->item('document_root') . '/' . $path . '/' . $image_name); 
+
+		if ($image_exist == true && !empty($image_name)) :
+			$image_url = base_url($path . '/' . $image_name);
+			return $image_url;
+		else :
+			$default_image = web_image($default_image);
+			return $profile_image_link = base_url('files/web_images/' . $default_image);
+		endif;
+	}
+}
+
 ?>

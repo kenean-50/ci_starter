@@ -31,7 +31,7 @@
       	  	<div class="col-md-3">
 				<div class="box <?php echo setting_all('box_headers'); ?>">
 					<div class="box-body box-profile">
-						<img class="profile-user-img img-responsive img-circle" src="<?php echo base_url().'files/profiles/'.$profile_image;?>" alt="user Image">
+ 						<img data-src="<?php echo load_image($profile_image, 'files/profiles', 'user'); ?>" class="profile-user-img img-responsive img-circle lazy user-loader">
 						<h3 class="profile-username text-center"><?php echo $full_name; ?></h3>
 						<p class="text-muted text-center">Software Engineer</p>
 					</div>

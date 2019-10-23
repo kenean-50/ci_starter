@@ -80,7 +80,7 @@ class settings extends CI_Controller {
 					'image_name' => $this->upload->data('file_name'),
 					'placement'  => $this->input->post('placement')
 					); 
-				$this->Admin_model->upload('images', $file_detail);
+				$this->Admin_model->upload('web_images', $file_detail);
 				$this->session->set_flashdata('messagePr', 'Image uploaded successfully.');
 				redirect( base_url().'settings/change/', 'refresh');
 			}
