@@ -6,8 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<?php $favicon = web_image('favicon'); ?>
-	<link rel="shortcut icon" href="<?= base_url()?>files/web_images/<?php echo $favicon; ?>">
+	<link rel="shortcut icon" href="<?= base_url()?>files/web_images/<?php echo web_image('favicon'); ?>">
 	<title>CI Starter |  </title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">

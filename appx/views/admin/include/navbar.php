@@ -16,24 +16,25 @@
 				</div>
 			</div>			
  			<ul class="sidebar-menu" data-widget="tree">
-				<li class="header">MAIN NAVIGATION</li>
+				<li class="header"><?php echo get_phrase('main_navigation'); ?></li>
                 <li class="<?php  echo ($this->uri->segment(2) == 'home') ? 'active' : ''; ?>">
                     <a href="<?php echo base_url().'admin/home/'?>">
                         <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
+                        <span> <?php echo get_phrase('dashboard'); ?></span>
                     </a>
                 </li>
 				<li class="<?php  echo ($this->uri->segment(2) == 'edit_user') ? 'active' : ''; ?>">
                     <a href="<?php echo base_url().'admin/edit_user/'.$this->ion_auth->user()->row()->id;?>">
                         <i class="fa fa-user"></i>
-                        <span>Profile</span>
+                        <span><?php echo get_phrase('profile'); ?></span>
                     </a>
-				</li>				 
+				</li>
+
                 <?php  if ($this->ion_auth->is_admin()): ?>	  
                 <li class="<?php  echo ($this->uri->segment(2) == 'users') ? 'active' : ''; ?>" >
                     <a href="<?php echo base_url().'settings/users'?>">
                         <i class="fa fa-users"></i>
-                        <span>Users</span>
+                        <span><?php echo get_phrase('users'); ?></span>
                         <span class="pull-right-container">
                             <?php $count = $this->Admin_model->record_count('users');?>
                             <small class="label label-primary pull-right"><?php echo $count; ?></small>
@@ -41,11 +42,21 @@
                     </a>
                 </li>
                 <?php endif; ?>	
+
 		    	<?php  if ($this->ion_auth->is_admin()): ?>	  
 				<li class="<?php  echo ($this->uri->segment(2) == 'change') ? 'active' : ''; ?>">
 					<a href="<?php echo base_url().'settings/change/'?>">
                         <i class="fa fa-cogs"></i>
-                        <span>Settings</span>
+                        <span><?php echo get_phrase('settings'); ?></span>
+					</a>
+			    </li>
+			    <?php endif; ?>
+
+                <?php  if ($this->ion_auth->is_admin()): ?>	  
+				<li class="<?php  echo ($this->uri->segment(1) == 'language') ? 'active' : ''; ?>">
+					<a href="<?php echo base_url().'language/'?>">
+                        <i class="fa fa-language"></i>
+                        <span><?php echo get_phrase('languages'); ?></span>
 					</a>
 			    </li>
 			    <?php endif; ?>

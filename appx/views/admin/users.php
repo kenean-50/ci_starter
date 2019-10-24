@@ -1,12 +1,12 @@
 <div class="content-wrapper">
 	<section class="content-header">
 		<h1>
-			Users
-			<small>Management</small>
+			<?php echo get_phrase('users'); ?>
+			<small><?php echo get_phrase('management'); ?></small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">users management</li>
+			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> <?php echo get_phrase('home'); ?></a></li>
+			<li class="active"><?php echo get_phrase('users_management'); ?></li>
  		</ol>
 	</section>
     <section class="content">
@@ -15,14 +15,14 @@
 				<?php if($message):?>
 				<div class="alert alert-info alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<h4><i class="icon fa fa-info"></i> Notification!</h4>
+						<h4><i class="icon fa fa-info"></i> <?php echo get_phrase('notification'); ?>!</h4>
 					<div id="infoMessage"><?php echo $message;?></div>
 				</div>
 				<?php endif;?>	
 				<div class="nav-tabs-custom">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#users" data-toggle="tab">users</a></li>
-						<li><a href="#addUser" data-toggle="tab">Add user</a></li>
+						<li class="active"><a href="#users" data-toggle="tab"><?php echo get_phrase('users'); ?></a></li>
+						<li><a href="#addUser" data-toggle="tab"><?php echo get_phrase('add_users'); ?></a></li>
 					</ul>
            			<div class="tab-content">
             			<div class="active tab-pane" id="users">
@@ -30,16 +30,16 @@
 								<table id="tableUsers" class="table responsive table-hover">
 									<thead>
 										<tr>
-											<th>Profile Picture</th>
-											<th>Full Name</th>
- 											<th>Email</th>
-											<th>User Name</th>
-											<th>Phone</th>
-											<th>Created On</th>
-											<th>Status</th>
-											<th>Last Login</th>
-											<th>Privilage/Group</th>
-											<th>Action</th>
+											<th><?php echo get_phrase('profile_picture'); ?></th>
+											<th><?php echo get_phrase('full_name'); ?></th>
+ 											<th><?php echo get_phrase('email'); ?></th>
+											<th><?php echo get_phrase('username'); ?></th>
+											<th><?php echo get_phrase('phone'); ?></th>
+											<th><?php echo get_phrase('created_on'); ?></th>
+											<th><?php echo get_phrase('status'); ?></th>
+											<th><?php echo get_phrase('last_login'); ?></th>
+											<th><?php echo get_phrase('groups'); ?></th>
+											<th><?php echo get_phrase('action'); ?></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -82,11 +82,11 @@
 													<div class="modal-content" style="margin-top:100px;">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title" style="text-align:center;">Are you sure to deactivate this user ?</h4>
+															<h4 class="modal-title" style="text-align:center;"><?php echo get_phrase('are_you_sure_you_want_to_deactivate_this_user'); ?> ?</h4>
 														</div>
 														<div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-															<a href="<?php echo base_url();?>admin/deactivate/<?php echo $user->id; ?>" class="btn btn-danger" >Yes</a>
-															<button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+															<a href="<?php echo base_url();?>admin/deactivate/<?php echo $user->id; ?>" class="btn btn-danger" ><?php echo get_phrase('yes'); ?></a>
+															<button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('no'); ?></button>
 														</div>
 													</div>
 												</div>
@@ -99,42 +99,42 @@
 						<div class="tab-pane" id="addUser">
 							<?php echo form_open('settings/users');?>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">First Name<b style="color:red">*</b></label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('first_name'); ?><b style="color:red">*</b></label>
 									<div class="col-sm-10">
 										<?php echo form_input($first_name);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Last Name<b style="color:red">*</b></label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('last_name'); ?><b style="color:red">*</b></label>
 									<div class="col-sm-10">
 										<?php echo form_input($last_name);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Email<b style="color:red">*</b></label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('email'); ?><b style="color:red">*</b></label>
 									<div class="col-sm-10">
 										<?php echo form_input($email);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label"> Phone</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('phone'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($phone);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">New Password<b style="color:red">*</b></label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('new_password'); ?><b style="color:red">*</b></label>
 									<div class="col-sm-10">
 										<?php echo form_input($password);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Confirm password<b style="color:red">*</b></label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('confirm_password'); ?><b style="color:red">*</b></label>
 									<div class="col-sm-10">
 										<?php echo form_input($password_confirm);?><br>
 									</div>
 								</div>
-								<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>">Save</button>
+								<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>"><?php echo get_phrase('save'); ?></button>
 							<?php echo form_close();?>
 						</div>
            			</div>

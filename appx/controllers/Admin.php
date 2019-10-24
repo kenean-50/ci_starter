@@ -155,7 +155,30 @@ class Admin extends CI_Controller {
 				// check if upload is success
 				if($this->upload->do_upload('userfile'))
 				{
-					$data = array('upload_data' => $this->upload->data()); 
+					$data = array('upload_data' => $this->upload->data());
+
+					//Resize user profile picture squire
+					$img_config['image_library'] = 'gd2';
+					$img_config['source_image'] = './files/profiles/'.$this->upload->data('file_name');
+					$img_config['maintain_ratio'] = FALSE;
+					$img_config['width'] = 124;
+					$img_config['height'] = 124;
+	
+					$this->load->library('image_lib');
+					$this->image_lib->initialize($img_config);
+					$this->image_lib->resize();
+					
+					//Resize user profile picture thumb
+					// $img_config2['image_library'] = 'gd2';
+					// $img_config2['source_image'] = './files/profiles/'.$this->upload->data('file_name');
+					// $img_config2['maintain_ratio'] = FALSE;
+					// $img_config2['create_thumb'] = TRUE;
+					// $img_config2['new_image'] = './files/profiles/thumb/'.$this->upload->data('file_name');
+					// $img_config2['width'] = 35;
+					// $img_config2['height'] = 35;
+	
+					// $this->image_lib->initialize($img_config2);
+					// $this->image_lib->resize();
 				}
 				else
 				{	

@@ -2,7 +2,7 @@
 				<div class="pull-right hidden-xs">
 					<b>Version</b> 1.0
 				</div>
-				<strong>Copyright &copy; 2018 <a href="<?php echo base_url();?>"> CI starter</a>.</strong> All rights reserved.
+				<strong>Copyright &copy; 2019 <a href="<?php echo base_url();?>"> CI starter</a>.</strong> All rights reserved.
 			</footer>
  		 	<aside class="control-sidebar control-sidebar-dark">
 			    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -225,13 +225,36 @@
 		</div>
 		<script>
 			
+			function edit_p(id,lang){
+
+			$('#edit_phrase_'+lang+'_'+id).submit(function (event){
+				event.preventDefault();
+					$.ajax({
+						type:"POST",
+						data: $('#edit_phrase_'+lang+'_'+id).serialize(),
+						url:  '<?php echo base_url(); ?>language/phrase/edit_phrase',
+						error: function(req, err)
+						{
+							console.log(err);
+							alert("An error coloured please try again!");
+						},
+						success: function(json_data)
+						{
+							var tex = $("input[id='translation_value_"+id+'_'+lang+"']").val();
+							jQuery('#edit_'+id+'_'+lang).modal('hide');
+							$('#translation_'+id+'_'+lang).html(tex);
+						}
+					});
+				})
+			}
+
 			$(function() {
 				$('.lazy').Lazy({
  					scrollDirection: 'vertical',
 					effect: "fadeIn",
 					effectTime: 200,
 					threshold: 0,
-					delay: 2000,
+					delay: 0,
 					placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7...",
 					visibleOnly: true,
 					onError: function(element) {
@@ -239,6 +262,10 @@
 					}
 				});
 			});
+
+			$(document).ready(function() {
+				$('table.display').dataTable();
+			} );
 
 			$('.sidebar-toggle').click(function ()
 			{

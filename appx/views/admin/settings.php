@@ -2,11 +2,11 @@
 
 	<section class="content-header">
       	<h1>
-      		Settings
+		  <?php echo get_phrase('settings'); ?>
     	</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">Settings</li>
+			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> <?php echo get_phrase('home'); ?></a></li>
+			<li class="active"><?php echo get_phrase('settings'); ?></li>
 		</ol>
     </section>
 
@@ -16,16 +16,16 @@
 				<?php if($this->session->flashdata("message")):?>
 					<div class="alert alert-info alert-dismissible">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<h4><i class="icon fa fa-info"></i> Notification!</h4>
+						<h4><i class="icon fa fa-info"></i> <?php echo get_phrase('notification'); ?>!</h4>
 						<?php echo $this->session->flashdata("messagePr")?> 
 					</div>
 				<?php endif;?>	
 			</div>
 		</div>
 		<?php if(validation_errors()):?>
-            <div class="alert alert-info alert-dismissible">
+            <div class="alert alert-danger alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4><i class="icon fa fa-info"></i> Notification!</h4>
+              <h4><i class="icon fa fa-info"></i> <?php echo get_phrase('error'); ?>!</h4>
               <?php echo validation_errors(); ?> 
             </div>
 		<?php endif;?>		
@@ -34,39 +34,39 @@
 			<div class="col-md-12">
 				<div class="nav-tabs-custom">
 					<ul class="nav nav-tabs">
- 						<li class="active"><a href="#groups" data-toggle="tab">User account Groups</a></li>
-						<li><a href="#image" data-toggle="tab">Web Images</a></li>
+ 						<li class="active"><a href="#groups" data-toggle="tab"><?php echo get_phrase('user_account_groups'); ?></a></li>
+						<li><a href="#image" data-toggle="tab"><?php echo get_phrase('web_images'); ?></a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="groups">
 							<button class="btn btn-flat <?php echo setting_all('buttons'); ?> btn-sm pull-right" data-toggle="modal"  data-target="#addgp">
-								Add Group
+								<?php echo get_phrase('add_groups'); ?>
 							</button><br><br>
 							<div class="modal fade" id="addgp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title" id="myModalLabel">Add Group</h4>
+											<h4 class="modal-title" id="myModalLabel"><?php echo get_phrase('add_groups'); ?></h4>
 										</div>
 										<?php echo form_open('settings/create_group')?>
 											<div class="modal-body">
 												<div class="form-group">
-													<label class="col-sm-2 col-sm-2 control-label"> Group Name</label>
+													<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('group_name'); ?></label>
 													<div class="col-sm-10">
 														<input type="text" class="form-control" name="group_name" >
 													</div>
 												</div><br><br><br>
 												<div class="form-group">
-													<label class="col-sm-2 col-sm-2 control-label"> Discription</label>
+													<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('description'); ?></label>
 													<div class="col-sm-10">
 														<input type="text" class="form-control" name="description" >
 													</div>
 												</div><br><br><br>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Close</button>
-												<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>">Add</button>
+												<button type="button" class="btn btn-flat btn-default" data-dismiss="modal"><?php echo get_phrase('close'); ?></button>
+												<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>"><?php echo get_phrase('add'); ?></button>
 											</div>
 										<?php echo form_close();?>
 									</div>
@@ -76,9 +76,9 @@
 								<table id="tableGroups" class="table table-hover  table-bordered">
 									<thead>
 										<tr>
-											<th> Group Id</th>
-											<th> Group Name</th>
-											<th> Action</th>
+											<th> <?php echo get_phrase('group_id'); ?></th>
+											<th> <?php echo get_phrase('group_name'); ?></th>
+											<th> <?php echo get_phrase('action'); ?></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -92,7 +92,7 @@
 												<td>
 													<a onclick="confirm_modal('<?php echo base_url().'settings/delete_group/'.$group['id']?>');"  href="#">
 														<button class="btn btn-danger btn-xs">
-															<i class="fa fa-trash-o "></i> Delete
+															<i class="fa fa-trash-o "></i> <?php echo get_phrase('delete'); ?>
 														</button>
 													</a>
 												</td>
@@ -105,7 +105,7 @@
 
 						<div class="tab-pane" id="image">
 							<button class="btn btn-flat <?php echo setting_all('buttons'); ?> btn-sm pull-right" data-toggle="modal" data-target="#addImage">
-								Add Image place
+								<?php echo get_phrase('add_image_placement'); ?>
 							</button><br><br>
 							<div class="modal fade" id="addImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
@@ -113,17 +113,17 @@
 										<?php echo form_open_multipart('settings/add_image')?>
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">Add New Image Placement</h4>
+												<h4 class="modal-title" id="myModalLabel"><?php echo get_phrase('add_new_image_placement'); ?></h4>
 											</div>
 											<div class="modal-body">
 												<div class="form-group">
-													<label class="col-sm-2 col-sm-2 control-label">Image file</label>
+													<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('image_file'); ?></label>
 													<div class="col-sm-10">
 														<input type="file" name="userfile" value="<?= set_value('userfile')?>"  class="form-control"><br>
 													</div>
 												</div><br><br><br>
 												<div class="form-group">
-													<label class="col-sm-2 col-sm-2 control-label">Image Placement</label>
+													<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('image_placement'); ?></label>
 													<?php echo form_error('placement'); ?>
 													<div class="col-sm-10">
 														<input type="text" name="placement" value="<?= set_value('placement')?>"  class="form-control"><br>
@@ -131,8 +131,8 @@
 												</div><br><br><br>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Close</button>
-												<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>">Add</button>
+												<button type="button" class="btn btn-flat btn-default" data-dismiss="modal"><?php echo get_phrase('close'); ?></button>
+												<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>"><?php echo get_phrase('add'); ?></button>
 											</div>
 										<?php echo form_close(); ?>
 									</div>
@@ -143,10 +143,10 @@
 								<table id="tableImages" class="table  table-hover">
 									<thead>
 										<tr>
-											<th> Image </th>
-											<th> Image Name</th>
-											<th> Image Placement</th>
-											<th> Action</th>
+											<th> <?php echo get_phrase('image'); ?> </th>
+											<th> <?php echo get_phrase('image_name'); ?></th>
+											<th> <?php echo get_phrase('image_placement'); ?></th>
+											<th> <?php echo get_phrase('action'); ?></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -178,12 +178,12 @@
 													<div class="modal-content">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title" id="myModalLabel"> Change Image <?php echo $image['placement']; ?></h4>
+															<h4 class="modal-title" id="myModalLabel"> <?php echo get_phrase('change_image'); ?> <?php echo $image['placement']; ?></h4>
 														</div>
 														<?php echo form_open_multipart('settings/change_image')?>
 															<div class="modal-body">
 																<div class="form-group">
-																	<label class="col-sm-2 col-sm-2 control-label">Image file</label>
+																	<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('image_file'); ?></label>
 																	<div class="col-sm-10">
 																		<input type="file" name="userfile"  class="form-control"><br>
 																	</div>
@@ -191,8 +191,8 @@
 																<input type="hidden" name="id" value="<?php echo $image['id']; ?>">
 															</div>
 															<div class="modal-footer">
-																<button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Close</button>
-																<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>">Save</button>
+																<button type="button" class="btn btn-flat btn-default" data-dismiss="modal"><?php echo get_phrase('close'); ?></button>
+																<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>"><?php echo get_phrase('save'); ?></button>
 															</div>
 														</form>
 													</div>
@@ -203,7 +203,7 @@
 													<div class="modal-content">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title" id="myModalLabel">  Image <?php echo $image['placement']; ?></h4>
+															<h4 class="modal-title" id="myModalLabel">  <?php echo get_phrase('image'); ?> <?php echo $image['placement']; ?></h4>
 														</div>
 														<div class="modal-body">
 															<div class="row centered">
@@ -211,7 +211,7 @@
 															</div>
 														</div>
 														<div class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo get_phrase('close'); ?></button>
 														</div>
 													</div>
 												</div>

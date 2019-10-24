@@ -15,49 +15,37 @@
 					<div class="inner">
 						<?php $count = $this->Admin_model->record_count('users');?>
 						<h3><?php echo $count;?></h3>
-						<p>Users Registration </p>
+						<p><?php echo get_phrase('total_users'); ?></p>
 					</div>
 					<div class="icon">
 						<i class="fa fa-user-plus"></i>
 					</div>
-					<a href="<?php echo base_url('settings/users/'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?php echo base_url('settings/users/'); ?>" class="small-box-footer"><?php echo get_phrase('more_info'); ?> <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
        	    </div>    
       		<div class="col-lg-3 col-xs-6">
  	        	<div class="small-box bg-aqua">
             		<div class="inner">
              			 	<h3>1</h3>
-            				<p>Online Users</p>
+            				<p><?php echo get_phrase('online_users'); ?></p>
           			</div>
 					<div class="icon">
 						<i class="fa fa-users"></i>
 					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="#" class="small-box-footer"><?php echo get_phrase('more_info'); ?> <i class="fa fa-arrow-circle-right"></i></a>
          		</div>
    		    </div>
-       		<div class="col-lg-3 col-xs-6">
-          		<div class="small-box bg-black">
-           			<div class="inner">
- 						<h3>88</h3>
-						<p>PDF</p>
-          			</div>
-					<div class="icon">
-						<i style="color:rgb(170, 163, 152)" class="fa fa-file-pdf-o"></i>
-					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          		</div>
-     		</div>
         	<div class="col-lg-3 col-xs-6">
         		<div class="small-box bg-red">
             		<div class="inner">
              			<?php $count = $this->Admin_model->record_count('users', 'active','0');?>
               			<h3><?php echo $count;?></h3>
-						<p>Deactivated users</p>
+						<p><?php echo get_phrase('deactivated_users'); ?></p>
           			</div>
 					<div class="icon">
 						<i class="fa fa-user-times"></i>
 					</div>
-					<a href="<?php echo base_url('settings/users/')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?php echo base_url('settings/users/')?>" class="small-box-footer"><?php echo get_phrase('more_info'); ?> <i class="fa fa-arrow-circle-right"></i></a>
           		</div>
         	</div>        
       	</div>

@@ -1,11 +1,11 @@
 <div class="content-wrapper">
 	<section class="content-header">
 		<h1>
-			Profile
+			<?php echo get_phrase('profile'); ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active"> profile</li>
+			<li><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i> <?php echo get_phrase('home'); ?> </a></li>
+			<li class="active"><?php echo get_phrase('profile'); ?></li>
 		</ol>
 	</section>
     <section class="content">
@@ -14,7 +14,7 @@
 				<?php if($this->session->flashdata("message")):?>
 					<div class="alert alert-info alert-dismissible">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<h4><i class="icon fa fa-info"></i> Notification!</h4>
+						<h4><i class="icon fa fa-info"></i> <?php echo get_phrase('notification'); ?>!</h4>
 						<?php echo $this->session->flashdata("message")?> 
 					</div>
 				<?php endif;?>	
@@ -23,7 +23,7 @@
 		<?php if(validation_errors()):?>
             <div class="alert alert-danger alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4><i class="icon fa fa-info"></i> Error!</h4>
+              <h4><i class="icon fa fa-info"></i> <?php echo get_phrase('error'); ?>!</h4>
               <?php echo validation_errors(); ?> 
             </div>
 		<?php endif;?>		
@@ -40,43 +40,43 @@
         	<div class="col-md-9">
          		<div class="nav-tabs-custom">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#profile" data-toggle="tab">User Profile</a></li>
+						<li class="active"><a href="#profile" data-toggle="tab"><?php echo get_phrase('user_profile'); ?></a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="active tab-pane " id="profile">
 							<?php echo form_open_multipart(uri_string());?>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">First Name</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('first_name'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($first_name);?><br>
 									</div>
 								</div>				 
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Last Name</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('last_name'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($last_name);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label"> Phone</label>
+									<label class="col-sm-2 col-sm-2 control-label"> <?php echo get_phrase('phone'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($phone);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label"> Profile pic</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('profile_picture'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($userfile);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">New Password</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('new_password'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($password);?><br>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Confirm password</label>
+									<label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('confirm_profile'); ?></label>
 									<div class="col-sm-10">
 										<?php echo form_input($password_confirm);?><br>
 									</div>
@@ -84,7 +84,7 @@
                   				<?php if ($this->ion_auth->is_admin()): ?>
                   				<div class="form-group">
                        				<div class="col-sm-offset-2 col-sm-10">
-                        			   <label class="col-sm-2 col-sm-2 control-label">User Groups</label>
+                        			   <label class="col-sm-2 col-sm-2 control-label"><?php echo get_phrase('user_groups'); ?></label>
                        				   <div class="checkbox">
 											<?php foreach ($groups as $group): 
 												$gID=$group['id'];
@@ -108,7 +108,7 @@
                				    <?php endif ?>
 								<?php echo form_hidden('id', $user->id);?>
 								<?php echo form_hidden($csrf); ?>
-               					<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>">Save</button>
+               					<button type="submit" name="submit" class="btn btn-flat <?php echo setting_all('buttons'); ?>"><?php echo get_phrase('save'); ?></button>
               				<?php echo form_close();?>
               			</div>
            		 	</div>
