@@ -207,6 +207,7 @@
 		<script src="<?php echo base_url();?>assets/admin/dist/js/scripts.js"></script>
 		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.min.js"></script>
    		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.plugins.min"></script>
+   		<script src="<?php echo base_url(); ?>assets/plugins/noty/noty.js"></script>
          
 
 		<div class="modal  fade" id="modal-4">
