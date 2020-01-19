@@ -10,6 +10,9 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/AdminLTE.min.css">
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/admin/plugins/iCheck/square/blue.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/plugins/animate/animate.min.css" >
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/plugins/noty/noty.css" >
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/plugins/noty/themes/metroui.css" > 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 	</head>
 	<body class="hold-transition login-page">
@@ -24,7 +27,7 @@
 						<?php echo $this->session->flashdata("message")?>
 					</div>
 				<?php } ?>
-				<?php echo form_open('admin/login', 'class="form-login"')?>
+				<?php echo form_open('admin/login', 'data-url="'.base_url('auth/login_ajax').'" ')?>
 					<div class="form-group has-feedback">
 						<input type="text" name="identity" class="form-control" value="<?= set_value('identity')?>" placeholder="<?php echo get_phrase('email'); ?>" autofocus>
 						<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -78,6 +81,10 @@
  		<script src="<?php echo base_url();?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
  		<script src="<?php echo base_url();?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="<?php echo base_url();?>assets/admin/plugins/iCheck/icheck.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/noty/noty.js"></script>
+   		<script src="<?php echo base_url(); ?>assets/js/init.js"></script>
+   		<script src="<?php echo base_url(); ?>assets/ajax/login.js"></script>
+         
 		<script>
 			$(function () {
 				$('input').iCheck({

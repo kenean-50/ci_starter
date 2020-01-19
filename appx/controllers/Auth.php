@@ -16,7 +16,7 @@ class Auth extends CI_Controller
         $this->load->model('Admin_model');	
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
-		$this->lang->load('auth','arabic');
+		$this->lang->load('auth');
  	}
 
 	/**
@@ -861,6 +861,55 @@ class Auth extends CI_Controller
 		{
 			return $view_html;
 		}
+	}
+
+	public function login_ajax()
+	{
+		// ajax message and success status response
+		$ajax_response = [];
+
+		// validate form input
+		$this->form_validation->set_rules('identity', get_phrase('username'), 'required');
+		$this->form_validation->set_rules('password', get_phrase('password'), 'required');
+
+		if ($this->form_validation->run() === TRUE)
+		{
+			// check to see if the user is logging in
+			// check for "remember me"
+			$remember = (bool)$this->input->post('remember');
+
+			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+			{
+				//if the login is successful
+				//redirect them back to the home page
+				$ajax_response = array(
+					'success' => true,
+					'message' => get_phrase('welcome')
+				);
+				// $this->session->set_flashdata('message', $this->ion_auth->messages());
+				// redirect( base_url().'admin/', 'refresh');
+			}
+			else
+			{
+				// if the login was un-successful
+				// redirect them back to the login page
+				// $this->session->set_flashdata('message', $this->ion_auth->errors());
+				$ajax_response = array(
+					'success' => false,
+					'message' => get_phrase('incorrect_login_please_try_again')
+				);
+				
+			}
+		}
+		else
+		{
+			$ajax_response = array(
+				'success' => false,
+				'message' => validation_errors()
+			);
+		}
+
+		echo json_encode($ajax_response);
 	}
 
 }

@@ -208,6 +208,8 @@
 		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.min.js"></script>
    		<script src="<?php echo base_url(); ?>assets/plugins/jquery.lazy/jquery.lazy.plugins.min"></script>
    		<script src="<?php echo base_url(); ?>assets/plugins/noty/noty.js"></script>
+   		<script src="<?php echo base_url(); ?>assets/js/init.js"></script>
+   		<script src="<?php echo base_url(); ?>assets/ajax/login.js"></script>
          
 
 		<div class="modal  fade" id="modal-4">
